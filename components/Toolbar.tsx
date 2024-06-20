@@ -12,7 +12,7 @@ import CoverImageModal from "./CoverImageModal"
 
 interface Props {
   documentData: Doc<"documents">
-  preview: boolean
+  preview?: boolean
 }
 
 const Toolbar = ({ documentData, preview }: Props) => {

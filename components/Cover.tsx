@@ -15,7 +15,7 @@ import CoverImageModal from "./CoverImageModal"
 interface Props {
   url?: string
   documentId: Id<"documents">
-  preview: boolean
+  preview?: boolean
 }
 
 const Cover = ({ url, documentId, preview }: Props) => {

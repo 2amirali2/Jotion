@@ -49,7 +49,7 @@ const DocumentIdPage = ({
   }
   return (
     <div>
-      <Cover url={document.coverImage} documentId={document._id} />
+      <Cover url={document.coverImage} documentId={document._id}  />
       <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
         <Toolbar documentData={document} />
         <Editor initialContent={document.content} onChange={onChange} documentId={document._id}  />
