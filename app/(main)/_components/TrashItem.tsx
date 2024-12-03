@@ -49,7 +49,6 @@ const TrashItem = ({ isMobile }: Props) => {
     const promise = deleteDocument({
       id: documentId,
     })
-    // .then(() => )
 
     toast.promise(promise, {
       loading: "Deleting note...",
