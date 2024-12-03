@@ -6,7 +6,7 @@ import { Button } from "./ui/button"
 import { Image as ImageIcon, Smile, X } from "lucide-react"
 import { useMutation } from "convex/react"
 import { api } from "@/convex/_generated/api"
-import { ChangeEvent, useRef, useState } from "react"
+import { ChangeEvent, ElementRef, useRef, useState } from "react"
 import IconPicker from "./IconPicker"
 import CoverImageModal from "./CoverImageModal"
 
@@ -17,7 +17,7 @@ interface Props {
 
 const Toolbar = ({ documentData, preview }: Props) => {
   const update = useMutation(api.documents.update)
-  const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const textareaRef = useRef<ElementRef<"textarea">>(null)
   const [title, setTitle] = useState(documentData.title || "Untitled")
   const [isEditing, setIsEditing] = useState(false)
   const removeIcon = useMutation(api.documents.removeIcon)
