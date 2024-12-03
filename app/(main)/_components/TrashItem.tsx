@@ -48,13 +48,16 @@ const TrashItem = ({ isMobile }: Props) => {
   const onDelete = (documentId: Id<"documents">) => {
     const promise = deleteDocument({
       id: documentId,
-    }).then(() => router.push("/documents"))
+    })
+    // .then(() => )
 
     toast.promise(promise, {
       loading: "Deleting note...",
       success: "Note Deleted",
       error: "Failed to delete note.",
     })
+
+    router.push("/documents")
   }
 
   if (documents === undefined) {
