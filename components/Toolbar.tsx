@@ -33,12 +33,12 @@ const Toolbar = ({ documentData, preview }: Props) => {
     }, 0)
   }
 
-  const onUpdate = (e: ChangeEvent<HTMLTextAreaElement>) => {
+  const onUpdate = (value: string) => {
     setIsEditing(true)
-    setTitle(e.target.value)
+    setTitle(value)
     update({
       id: documentData._id,
-      title: title || "Untitled",
+      title: value || "Untitled",
     })
   }
 
@@ -118,7 +118,7 @@ const Toolbar = ({ documentData, preview }: Props) => {
           ref={textareaRef}
           value={title}
           className="text-5xl bg-transparent font-bold break-words outline-none text-[#3F3F3F] dark:text-[#CFCFCF] resize-none"
-          onChange={onUpdate}
+          onChange={(e) => onUpdate(e.target.value)}
           onKeyDown={onKeyDown}
           onClick={onClick}
         />
