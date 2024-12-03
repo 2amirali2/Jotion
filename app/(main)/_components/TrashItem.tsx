@@ -21,13 +21,14 @@ import {
 } from "@/components/ui/alert-dialog"
 
 import { toast } from "sonner"
-import { useRouter } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 
 interface Props {
   isMobile: boolean
 }
 
 const TrashItem = ({ isMobile }: Props) => {
+  const params = useParams()
   const router = useRouter()
   const documents = useQuery(api.documents.getArchive)
   const restore = useMutation(api.documents.restore)
@@ -56,7 +57,9 @@ const TrashItem = ({ isMobile }: Props) => {
       error: "Failed to delete note.",
     })
 
-    router.push("/documents")
+    if (params.documentId === documentId) {
+      router.push("/documents")
+    }
   }
 
   if (documents === undefined) {
